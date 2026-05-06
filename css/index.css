@@ -467,6 +467,8 @@ body { padding-top: 60px; }
 .stay-updated h2 {
   margin-bottom: 0.75rem;
   display: inline-block;
+  border-left: none;
+  padding-left: 0;
 }
 .stay-updated .lead {
   margin: 0 auto 1.5rem;
