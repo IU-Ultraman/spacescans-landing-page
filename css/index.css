@@ -1,6 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
+/* --- Design tokens (Spec B) ---------------------------------- */
 :root {
+  /* Color */
+  --crimson:      #990000;
+  --crimson-deep: #6F0000;
+  --navy:         #1E3A5F;
+  --cream:        #F8F6F1;
+  --ink:          #1A1A1A;
+  --muted:        #595959;
+  --rule:         #E5E1D8;
+
+  /* Typography */
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans:  "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Type scale (rem) */
+  --fs-hero:  3.5rem;
+  --fs-h1:    2.5rem;
+  --fs-h2:    2rem;
+  --fs-h3:    1.5rem;
+  --fs-body:  1rem;
+  --fs-lead:  1.125rem;
+  --fs-small: 0.875rem;
+
+  /* Legacy tokens for backward compatibility */
   --btn-color: #fdfdfd; /* button color*/
   --btn-bg: #0d0d0d; /* button bg color*/
 
@@ -9,6 +31,47 @@
   --footer-link-hover: #6dbb00;
   --input-focus-bd-color: #0d0d0d;
 }
+
+/* Body baseline — overrides the existing tw-font-mono on <body> */
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+}
+
+/* Heading defaults */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  color: var(--crimson);
+  line-height: 1.2;
+}
+
+/* Utility classes */
+.lead         { font-size: var(--fs-lead); color: var(--ink); }
+.muted        { color: var(--muted); }
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Section heading with crimson left-rule (replaces tw-bg-orange-200) */
+.section-head {
+  border-left: 4px solid var(--crimson);
+  padding-left: 1rem;
+  font-family: var(--font-serif);
+  color: var(--crimson);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* --- end design tokens --------------------------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 html {
   scroll-behavior: smooth;
