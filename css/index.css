@@ -251,3 +251,104 @@ header > .collapsible-header {
     color: black;
   }
 }
+
+/* --- Site header --------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 2px solid var(--crimson);
+  padding: 0.75rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-sans);
+}
+
+.site-header__brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+.site-header__brand-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--crimson);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.site-header__brand-meta {
+  margin-top: 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.site-header__nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  position: relative;
+  padding: 0.25rem 0;
+}
+.site-header__nav a:hover {
+  color: var(--crimson);
+}
+.site-header__nav a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: var(--crimson);
+}
+
+@media (max-width: 1023px) {
+  .site-header__brand-meta { display: none; }
+  .site-header__nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-end;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--crimson);
+    padding: 1rem 1.5rem;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.2s ease;
+  }
+  .site-header__nav.is-open { width: 60vw; }
+}
+
+.site-header__menu-btn {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font-size: 1.75rem;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+@media (max-width: 1023px) {
+  .site-header__menu-btn { display: block; }
+}
+
+/* Body padding so fixed header doesn't overlap content */
+body { padding-top: 60px; }
+@media (max-width: 1023px) { body { padding-top: 56px; } }
+/* --- end site header ----------------------------------------- */
