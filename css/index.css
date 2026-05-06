@@ -534,3 +534,46 @@ body { padding-top: 60px; }
   max-width: 65ch;
 }
 /* --- end content section ------------------------------------- */
+
+/* --- Specific Aims grid -------------------------------------- */
+.aim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+@media (max-width: 1023px) { .aim-grid { grid-template-columns: 1fr; } }
+
+.aim-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.aim-card__numeral {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: var(--crimson);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.aim-card__heading {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  color: var(--navy);
+  margin: 0;
+  line-height: 1.25;
+}
+.aim-card__body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+/* --- end aim grid -------------------------------------------- */
