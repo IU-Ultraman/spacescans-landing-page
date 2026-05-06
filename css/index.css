@@ -459,3 +459,64 @@ body { padding-top: 60px; }
   color: var(--muted);
 }
 /* --- end footer + signup form -------------------------------- */
+
+/* --- Hero ---------------------------------------------------- */
+.hero {
+  padding: 4rem 5% 3rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+}
+@media (max-width: 1023px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
+.hero__copy { display: flex; flex-direction: column; gap: 1.25rem; }
+.hero__title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--fs-hero);
+  color: var(--crimson);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+.hero__subtitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-h2);
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0;
+}
+.hero__lead {
+  font-family: var(--font-sans);
+  font-size: var(--fs-lead);
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 50ch;
+  margin: 0;
+}
+.hero__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__image {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+}
+@media (max-width: 1023px) {
+  .hero__image { max-width: 360px; }
+}
+/* --- end hero ------------------------------------------------ */
