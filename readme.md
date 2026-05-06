@@ -44,3 +44,49 @@ To create a build file use
 ```html
 npm run build:tailwind
 ```
+
+## Optimizing Images
+
+Before committing any new image asset, recompress it and generate a WebP variant. The site uses `<picture>` elements that prefer WebP and fall back to the original format.
+
+Required CLI tools (one-time install):
+
+```bash
+brew install imagemagick webp
+```
+
+For a JPEG (photos, screenshots, panoramas):
+
+```bash
+# Resize to a sensible max width and recompress in place
+magick assets/images/your-image.jpg -resize '1920x>' -quality 82 -strip assets/images/your-image.jpg
+
+# Generate WebP variant
+cwebp -q 82 assets/images/your-image.jpg -o assets/images/your-image.webp
+```
+
+For a PNG (logos, illustrations with transparency):
+
+```bash
+magick assets/images/your-image.png -strip -define png:compression-level=9 assets/images/your-image.png
+cwebp -lossless assets/images/your-image.png -o assets/images/your-image.webp
+```
+
+Then reference both formats with `<picture>` in the HTML:
+
+```html
+<picture>
+  <source srcset="./assets/images/your-image.webp" type="image/webp" />
+  <img
+    src="./assets/images/your-image.jpg"
+    alt="Descriptive alt text"
+    width="1920"
+    height="1080"
+    loading="lazy"
+    decoding="async"
+    class="..."
+  />
+</picture>
+```
+
+For above-the-fold (hero) images, omit `loading="lazy"` and add `fetchpriority="high"` instead.
