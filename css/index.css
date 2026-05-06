@@ -352,3 +352,110 @@ header > .collapsible-header {
 body { padding-top: 60px; }
 @media (max-width: 1023px) { body { padding-top: 56px; } }
 /* --- end site header ----------------------------------------- */
+
+/* --- Site footer --------------------------------------------- */
+.site-footer {
+  margin-top: 4rem;
+  padding: 3rem 5% 2rem;
+  background: #fff;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-sans);
+  color: var(--ink);
+}
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+.site-footer__col h4 {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+.site-footer__col ul { list-style: none; padding: 0; margin: 0; }
+.site-footer__col li { margin-bottom: 0.5rem; }
+.site-footer__col a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.site-footer__col a:hover {
+  color: var(--crimson);
+  border-bottom-color: var(--crimson);
+}
+.site-footer__brand {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--crimson);
+  margin-bottom: 0.5rem;
+}
+.site-footer__copy {
+  font-size: var(--fs-small);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* --- Signup form --------------------------------------------- */
+.signup-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+  font-family: var(--font-sans);
+}
+.signup-form input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+.signup-form input[type="email"]:focus {
+  outline: 2px solid var(--navy);
+  outline-offset: 1px;
+  border-color: var(--navy);
+}
+.signup-form button {
+  padding: 0.625rem 1.25rem;
+  background: var(--crimson);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+.signup-form button:hover { background: var(--crimson-deep); }
+.signup-form button:disabled { opacity: 0.6; cursor: progress; }
+
+.signup-status {
+  margin-top: 0.5rem;
+  font-size: var(--fs-small);
+  min-height: 1.2em;
+}
+.signup-status[data-state="success"] { color: var(--navy); }
+.signup-status[data-state="error"]   { color: var(--crimson); }
+
+.signup-note {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+/* --- end footer + signup form -------------------------------- */

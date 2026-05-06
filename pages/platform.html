@@ -201,16 +201,33 @@
       </div>
     </section>
 
-    <hr class="tw-mt-4" />
-
-    <footer
-      class="tw-mt-auto tw-flex tw-min-h-[100px] tw-w-full tw-place-content-around tw-place-items-center tw-gap-3 tw-p-[2%] tw-px-[10%] tw-text-black max-md:tw-flex-col"
-    >
-      <div class="tw-flex tw-gap-6 tw-text-2xl">
-        <p class="tw-text-sm">
-          Funding: Supported by the National Institute of Environmental Health
-          Sciences (NIEHS) R24ES036131
-        </p>
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div class="site-footer__col">
+          <div class="site-footer__brand">SPACESCANS</div>
+          <p class="site-footer__copy">
+            &copy; 2026 Indiana University &amp; Regenstrief Institute.<br />
+            Supported by NIH/NIEHS R24ES036131.
+          </p>
+        </div>
+        <div class="site-footer__col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="../pages/platform.html">Data Catalog</a></li>
+            <li><a href="../pages/docs.html">Docs</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h4>Updates</h4>
+          <form class="signup-form" data-mailerlite-form data-form-location="footer">
+            <label for="footer-email-platform" class="visually-hidden">Email address</label>
+            <input id="footer-email-platform" name="email" type="email" required placeholder="you@example.org" />
+            <button type="submit">Subscribe</button>
+          </form>
+          <p class="signup-note">Double opt-in. Unsubscribe anytime.</p>
+          <div class="signup-status" role="status" aria-live="polite"></div>
+        </div>
       </div>
     </footer>
   </body>
