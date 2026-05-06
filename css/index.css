@@ -520,3 +520,17 @@ body { padding-top: 60px; }
   .hero__image { max-width: 360px; }
 }
 /* --- end hero ------------------------------------------------ */
+
+/* --- Generic content section --------------------------------- */
+.content-section {
+  padding: 4rem 5%;
+}
+.content-section__inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.content-section__inner > .lead {
+  margin-top: 1rem;
+  max-width: 65ch;
+}
+/* --- end content section ------------------------------------- */
