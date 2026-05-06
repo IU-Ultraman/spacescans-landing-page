@@ -637,3 +637,34 @@ body { padding-top: 60px; }
   flex: none;
 }
 /* --- end quickstart ------------------------------------------ */
+
+/* --- Stay Updated section ------------------------------------ */
+.stay-updated {
+  padding: 4rem 5%;
+  background: #fff;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.stay-updated__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.stay-updated h2 {
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+.stay-updated .lead {
+  margin: 0 auto 1.5rem;
+  max-width: 50ch;
+}
+.stay-updated .signup-form {
+  max-width: 480px;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .stay-updated .signup-form {
+    flex-direction: column;
+  }
+}
+/* --- end stay updated ---------------------------------------- */

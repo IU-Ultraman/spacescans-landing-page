@@ -235,6 +235,25 @@
       </div>
     </section>
 
+    <section class="stay-updated" id="stay-updated">
+      <div class="stay-updated__inner">
+        <h2 class="reveal-up section-head" style="border-left: none; padding-left: 0;">
+          Stay Updated
+        </h2>
+        <p class="reveal-up lead">
+          Get research updates from the SPACESCANS team — typically once a
+          month, no marketing.
+        </p>
+        <form class="signup-form" data-mailerlite-form data-form-location="stay-updated">
+          <label for="stay-updated-email" class="visually-hidden">Email address</label>
+          <input id="stay-updated-email" name="email" type="email" required placeholder="you@example.org" />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="signup-note">Double opt-in. Unsubscribe anytime.</p>
+        <div class="signup-status" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
     <footer class="site-footer">
       <div class="site-footer__grid">
         <div class="site-footer__col">
@@ -282,4 +301,5 @@
   ></script>
 
   <script defer src="./index.js"></script>
+  <script defer src="./assets/js/mailerlite-form.js"></script>
 </html>
