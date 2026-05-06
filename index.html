@@ -167,87 +167,71 @@
       </div>
     </section>
 
-    <section
-      class="tw-mt-5 tw-flex tw-w-full tw-flex-col tw-place-items-center tw-p-[2%] max-lg:tw-p-3"
-    >
-      <h3
-        class="reveal-up tw-text-center tw-text-4xl tw-font-medium max-md:tw-text-2xl"
-      >
-        Quick Start
-      </h3>
-
-      <div
-        class="reveal-up tw-mt-10 tw-flex tw-flex-wrap tw-place-content-center tw-gap-10 max-lg:tw-flex-col"
-      >
-        <a
-          href="pages/platform.html"
-          class="tw-flex tw-w-[300px] tw-flex-col tw-gap-2 tw-overflow-clip tw-rounded-lg tw-bg-[#edecec79] tw-p-4 tw-shadow-xl max-lg:tw-w-[300px]"
-        >
-          <div class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md">
-            <img
-              src="./assets/images/harddrive.jpg"
-              alt="Hard drive illustration"
-              width="640"
-              height="427"
-              loading="lazy"
-              decoding="async"
-              class="tw-h-full tw-w-full tw-object-cover"
-            />
-          </div>
-          <h3 class="tw-text-xl max-md:tw-text-xl">
-            Browse Data Catalog<span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-              </svg>
-            </span>
-          </h3>
-        </a>
-        <a
-          href="pages/docs.html"
-          class="tw-flex tw-w-[300px] tw-flex-col tw-gap-2 tw-overflow-clip tw-rounded-lg tw-bg-[#edecec79] tw-p-4 tw-shadow-xl max-lg:tw-w-[300px]"
-        >
-          <div class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md">
-            <img
-              src="./assets/images/bookshelf.jpg"
-              alt="Bookshelf illustration"
-              width="640"
-              height="427"
-              loading="lazy"
-              decoding="async"
-              class="tw-h-full tw-w-full tw-object-cover"
-            />
-          </div>
-          <h3 class="tw-text-xl max-md:tw-text-xl">
-            Read the Manual<span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-              </svg>
-            </span>
-          </h3>
-        </a>
-        <a
-          href="pages/contact.html"
-          class="tw-flex tw-w-[300px] tw-flex-col tw-gap-2 tw-overflow-clip tw-rounded-lg tw-bg-[#edecec79] tw-p-4 tw-shadow-xl max-lg:tw-w-[300px]"
-        >
-          <div class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md">
-            <img
-              src="./assets/images/letter.jpg"
-              alt="Letter illustration"
-              width="640"
-              height="427"
-              loading="lazy"
-              decoding="async"
-              class="tw-h-full tw-w-full tw-object-cover"
-            />
-          </div>
-          <h3 class="tw-text-xl max-md:tw-text-xl">
-            Cite/Contact Us<span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-              </svg>
-            </span>
-          </h3>
-        </a>
+    <section class="content-section">
+      <div class="content-section__inner">
+        <h2 class="reveal-up section-head">Quick Start</h2>
+        <div class="quickstart-grid">
+          <a href="pages/platform.html" class="reveal-up quickstart-card">
+            <div class="quickstart-card__media">
+              <img
+                src="./assets/images/harddrive.jpg"
+                alt="Hard drive illustration"
+                width="640"
+                height="427"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="quickstart-card__body">
+              <h3 class="quickstart-card__title">Browse Data Catalog</h3>
+              <span class="quickstart-card__cta" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+          <a href="pages/docs.html" class="reveal-up quickstart-card">
+            <div class="quickstart-card__media">
+              <img
+                src="./assets/images/bookshelf.jpg"
+                alt="Bookshelf illustration"
+                width="640"
+                height="427"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="quickstart-card__body">
+              <h3 class="quickstart-card__title">Read the Manual</h3>
+              <span class="quickstart-card__cta" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+          <a href="pages/contact.html" class="reveal-up quickstart-card">
+            <div class="quickstart-card__media">
+              <img
+                src="./assets/images/letter.jpg"
+                alt="Letter illustration"
+                width="640"
+                height="427"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="quickstart-card__body">
+              <h3 class="quickstart-card__title">Cite or Contact Us</h3>
+              <span class="quickstart-card__cta" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
