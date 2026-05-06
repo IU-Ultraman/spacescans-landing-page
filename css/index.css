@@ -21,15 +21,6 @@
   --fs-body:  1rem;
   --fs-lead:  1.125rem;
   --fs-small: 0.875rem;
-
-  /* Legacy tokens for backward compatibility */
-  --btn-color: #fdfdfd; /* button color*/
-  --btn-bg: #0d0d0d; /* button bg color*/
-
-  --primary-text-color: #000;
-  --header-link-hover: #dddcdccf;
-  --footer-link-hover: #6dbb00;
-  --input-focus-bd-color: #0d0d0d;
 }
 
 /* Body baseline — overrides the existing tw-font-mono on <body> */
