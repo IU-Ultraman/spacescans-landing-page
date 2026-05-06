@@ -90,3 +90,40 @@ Then reference both formats with `<picture>` in the HTML:
 ```
 
 For above-the-fold (hero) images, omit `loading="lazy"` and add `fetchpriority="high"` instead.
+
+## Email Signup Setup (MailerLite)
+
+The site includes a "Stay Updated" homepage section and a footer signup form on every page. Both post to the same MailerLite mailing list. To activate them after first deploy:
+
+1. Sign up for a free MailerLite account at https://www.mailerlite.com.
+2. In the MailerLite dashboard, create a subscriber group named **SPACESCANS Updates**. Make sure double opt-in is enabled (default).
+3. Create an embedded form pointing at that group. The exact form styling doesn't matter — the site uses its own CSS and only needs the form's IDs.
+4. Copy two values from the embed snippet MailerLite provides:
+   - The **account ID** (sometimes called `data-account` or shown as a numeric ID).
+   - The **form ID** (sometimes called `data-form`).
+5. Open `assets/js/mailerlite-form.js` and replace the two placeholder strings near the top:
+   ```javascript
+   var ACCOUNT_ID = 'YOUR_ACCOUNT_ID';
+   var FORM_ID    = 'YOUR_FORM_ID';
+   ```
+6. Commit + push. Both signup forms (Stay Updated section + footer) will start working.
+
+To change the wording or layout of the forms, edit the markup in `index.html` (`<form data-mailerlite-form>` blocks) and the CSS in `css/index.css` (`.signup-form` and `.stay-updated` classes).
+
+## Brand & Typography
+
+The site uses a small set of CSS custom properties as its design system. They are defined at the top of `css/index.css`:
+
+| Token | Value | Used for |
+|---|---|---|
+| `--crimson` | `#990000` | Headings, CTAs (IU primary) |
+| `--crimson-deep` | `#6F0000` | Hover state for crimson elements |
+| `--navy` | `#1E3A5F` | Links, secondary headings (Regenstrief accent) |
+| `--cream` | `#F8F6F1` | Page background |
+| `--ink` | `#1A1A1A` | Body text |
+| `--muted` | `#595959` | Secondary text |
+| `--rule` | `#E5E1D8` | Hairline borders |
+| `--font-serif` | Source Serif 4, Georgia | Headings |
+| `--font-sans` | Inter, system-ui | Body |
+
+To add new components, prefer these tokens over raw hex values so the design stays consistent and a future palette change happens in one place.
