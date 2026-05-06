@@ -1,199 +1,486 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
+/* --- Design tokens (Spec B) ---------------------------------- */
 :root {
-  --btn-color: #fdfdfd; /* button color*/
-  --btn-bg: #0d0d0d; /* button bg color*/
+  /* Color */
+  --crimson:      #990000;
+  --crimson-deep: #6F0000;
+  --navy:         #1E3A5F;
+  --cream:        #F8F6F1;
+  --ink:          #1A1A1A;
+  --muted:        #595959;
+  --rule:         #E5E1D8;
 
-  --primary-text-color: #000;
-  --header-link-hover: #dddcdccf;
-  --footer-link-hover: #6dbb00;
-  --input-focus-bd-color: #0d0d0d;
+  /* Typography */
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans:  "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Type scale (rem) */
+  --fs-hero:  3.5rem;
+  --fs-h1:    2.5rem;
+  --fs-h2:    2rem;
+  --fs-h3:    1.5rem;
+  --fs-body:  1rem;
+  --fs-lead:  1.125rem;
+  --fs-small: 0.875rem;
 }
+
+/* Body baseline — overrides the existing tw-font-mono on <body> */
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+}
+
+/* Heading defaults */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  color: var(--crimson);
+  line-height: 1.2;
+}
+
+/* Utility classes */
+.lead         { font-size: var(--fs-lead); color: var(--ink); }
+.muted        { color: var(--muted); }
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Section heading with crimson left-rule (replaces tw-bg-orange-200) */
+.section-head {
+  border-left: 4px solid var(--crimson);
+  padding-left: 1rem;
+  font-family: var(--font-serif);
+  color: var(--crimson);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* --- end design tokens --------------------------------------- */
 
 html {
   scroll-behavior: smooth;
-  font-family: "Roboto", sans-serif;
 }
 
-header {
-  /* background-color: #fff;
-    color: #000; */
-}
-
-header > .collapsible-header {
-  display: flex;
-  gap: 1rem;
-  width: 100%;
-  background-color: inherit;
-  place-content: center;
-  overflow: hidden;
-  transition: width 0.3s ease;
-}
-
-.outline-effect {
-  color: black;
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke: 2px black;
-}
-
-.animated-collapse {
-  transition: width 0.3s ease;
-}
-
-.header-links {
+/* --- Site header --------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 2px solid var(--crimson);
+  padding: 0.75rem 5%;
   display: flex;
   align-items: center;
-  min-width: fit-content;
-  border-radius: 25px;
-  padding: 5px 15px;
-  transition: background-color 0.5s, color 0.5s;
+  justify-content: space-between;
+  font-family: var(--font-sans);
 }
 
-.header-links:hover {
-  background-color: var(--header-link-hover);
-}
-
-.material-icons.md-40 {
-  font-size: 40px;
-}
-
-.primary-text-color {
-  color: var(--primary-text-color);
-}
-
-.opacity-0 {
-  opacity: 0 !important;
-}
-
-.opacity-100 {
-  opacity: 100 !important;
-}
-
-.btn {
-  padding: 10px 15px;
-  width: max-content;
-  border-radius: 25px;
-  color: var(--btn-color);
-  background-color: var(--btn-bg);
-  justify-content: center;
-  align-items: center;
+.site-header__brand {
   display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+.site-header__brand-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--crimson);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.site-header__brand-meta {
+  margin-top: 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.site-header__nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  position: relative;
+  padding: 0.25rem 0;
+}
+.site-header__nav a:hover {
+  color: var(--crimson);
+}
+.site-header__nav a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: var(--crimson);
+}
+
+@media (max-width: 1023px) {
+  .site-header__brand-meta { display: none; }
+  .site-header__nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-end;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--crimson);
+    padding: 1rem 1.5rem;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.2s ease;
+  }
+  .site-header__nav.is-open { width: 60vw; }
+}
+
+.site-header__menu-btn {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font-size: 1.75rem;
+  padding: 0.25rem;
   cursor: pointer;
 }
-
-.btn:hover {
+@media (max-width: 1023px) {
+  .site-header__menu-btn { display: block; }
 }
 
-.btn:disabled {
-  cursor: default;
+/* Body padding so fixed header doesn't overlap content */
+body { padding-top: 60px; }
+@media (max-width: 1023px) { body { padding-top: 56px; } }
+/* --- end site header ----------------------------------------- */
+
+/* --- Site footer --------------------------------------------- */
+.site-footer {
+  margin-top: 4rem;
+  padding: 3rem 5% 2rem;
+  background: #fff;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-sans);
+  color: var(--ink);
+}
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+.site-footer__col h4 {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+.site-footer__col ul { list-style: none; padding: 0; margin: 0; }
+.site-footer__col li { margin-bottom: 0.5rem; }
+.site-footer__col a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.site-footer__col a:hover {
+  color: var(--crimson);
+  border-bottom-color: var(--crimson);
+}
+.site-footer__brand {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--crimson);
+  margin-bottom: 0.5rem;
+}
+.site-footer__copy {
+  font-size: var(--fs-small);
+  color: var(--muted);
+  line-height: 1.5;
 }
 
-.input {
-  padding: 10px;
-  background-color: transparent;
-  border-radius: 25px;
-  /* outline: none; */
-  min-width: 100px;
-  border: 2px solid #818080;
-  transition: border 0.3s;
+/* --- Signup form --------------------------------------------- */
+.signup-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+  font-family: var(--font-sans);
 }
-
-.input:active,
-.input:focus,
-.input:focus-within {
-  border: 2px solid var(--input-focus-bd-color);
+.signup-form input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: #fff;
 }
-
-.input-error {
-  border-bottom: 3px solid #ff1e1e;
+.signup-form input[type="email"]:focus {
+  outline: 2px solid var(--navy);
+  outline-offset: 1px;
+  border-color: var(--navy);
 }
-
-.input-error:focus-within {
-  border-bottom: 3px solid #fd0101;
+.signup-form button {
+  padding: 0.625rem 1.25rem;
+  background: var(--crimson);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  font-family: inherit;
 }
+.signup-form button:hover { background: var(--crimson-deep); }
+.signup-form button:disabled { opacity: 0.6; cursor: progress; }
 
-/* Navigation dots styling */
-.dots-container {
-  text-align: center;
-  margin-top: 20px;
+.signup-status {
+  margin-top: 0.5rem;
+  font-size: var(--fs-small);
+  min-height: 1.2em;
 }
+.signup-status[data-state="success"] { color: var(--navy); }
+.signup-status[data-state="error"]   { color: var(--crimson); }
 
-.footer-link {
-  color: #0d0d0d;
-  transition: color 0.3s;
+.signup-note {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
 }
+/* --- end footer + signup form -------------------------------- */
 
-.footer-link:hover {
-  color: var(--footer-link-hover);
+/* --- Hero ---------------------------------------------------- */
+.hero {
+  padding: 4rem 5% 3rem;
+  max-width: 1280px;
+  margin: 0 auto;
 }
-
-.review-container {
-  position: relative;
-  max-width: 600px;
-  margin: auto;
+.hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+  min-height: calc(100vh - 60px);
 }
-
-.review-card {
-  box-shadow: 0px 2px 4px #757474a0;
-  border-radius: 15px;
-  /* width: 200px; */
-  /* height: 550px; */
-  padding: 10px;
+@media (max-width: 1023px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
 }
-
-/* --------- collapsible div ---------- */
-.collapsible {
-  background-color: #f3f0f0;
-  color: #2b2929;
-  /* cursor: pointer; */
-  padding: 5px;
+.hero__copy { display: flex; flex-direction: column; gap: 1.25rem; }
+.hero__title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--fs-hero);
+  color: var(--crimson);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+.hero__subtitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-h2);
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0;
+}
+.hero__lead {
+  font-family: var(--font-sans);
+  font-size: var(--fs-lead);
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 50ch;
+  margin: 0;
+}
+.hero__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__image {
   width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 16px;
-  transition: 0.4s;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
 }
+@media (max-width: 1023px) {
+  .hero__image { max-width: 360px; }
+}
+/* --- end hero ------------------------------------------------ */
 
-/* Style for the collapsible content */
-.content {
-  padding: 0 18px;
-  /* display: none; */
-  height: 0px;
+/* --- Generic content section --------------------------------- */
+.content-section {
+  padding: 4rem 5%;
+}
+.content-section__inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.content-section__inner > .lead {
+  margin-top: 1rem;
+  max-width: 65ch;
+}
+/* --- end content section ------------------------------------- */
+
+/* --- Specific Aims grid -------------------------------------- */
+.aim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+@media (max-width: 1023px) { .aim-grid { grid-template-columns: 1fr; } }
+
+.aim-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.aim-card__numeral {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: var(--crimson);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.aim-card__heading {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  color: var(--navy);
+  margin: 0;
+  line-height: 1.25;
+}
+.aim-card__body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+/* --- end aim grid -------------------------------------------- */
+
+/* --- Quick Start grid ---------------------------------------- */
+.quickstart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+@media (max-width: 1023px) { .quickstart-grid { grid-template-columns: 1fr; } }
+
+.quickstart-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
   overflow: hidden;
-  background-color: transparent;
-  transition: height 0.5s;
-  text-align: justify;
-  margin-top: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
-
-.collapsible .active,
-.collapsible:hover {
-  /* background-color: #dedddd; */
+.quickstart-card:hover {
+  border-color: var(--crimson);
+  transform: translateY(-2px);
 }
+.quickstart-card__media {
+  aspect-ratio: 640 / 427;
+  overflow: hidden;
+  background: #ddd;
+}
+.quickstart-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85);
+  transition: filter 0.2s ease;
+}
+.quickstart-card:hover .quickstart-card__media img { filter: saturate(1); }
+.quickstart-card__body {
+  padding: 1.25rem 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.quickstart-card__title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.25;
+}
+.quickstart-card__cta {
+  color: var(--crimson);
+  font-size: 1.25rem;
+  display: inline-flex;
+  flex: none;
+}
+/* --- end quickstart ------------------------------------------ */
 
-@media not all and (min-width: 1024px) {
-  header .collapsible-header {
-    position: fixed;
-    right: 0px;
+/* --- Stay Updated section ------------------------------------ */
+.stay-updated {
+  padding: 4rem 5%;
+  background: #fff;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.stay-updated__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.stay-updated h2 {
+  margin-bottom: 0.75rem;
+  display: inline-block;
+  border-left: none;
+  padding-left: 0;
+}
+.stay-updated .lead {
+  margin: 0 auto 1.5rem;
+  max-width: 50ch;
+}
+.stay-updated .signup-form {
+  max-width: 480px;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .stay-updated .signup-form {
     flex-direction: column;
-    opacity: 0;
-    height: 100vh;
-    min-height: 100vh;
-    height: 100dvh;
-    width: 0vw;
-    justify-content: space-between;
-    padding: 5px;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    place-items: end;
-    background-color: #ffffff;
-    color: #000000;
-    overflow-y: auto;
-    box-shadow: 2px 0px 3px #000;
-  }
-
-  .header-links {
-    color: black;
   }
 }
+/* --- end stay updated ---------------------------------------- */

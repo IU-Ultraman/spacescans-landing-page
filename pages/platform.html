@@ -21,36 +21,34 @@
     <!-- <link rel="stylesheet" href="../css/tailwind-runtime.css" /> -->
     <link rel="stylesheet" href="../css/tailwind-build.css" />
     <link rel="stylesheet" href="../css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@400;600;700&display=swap"
+    />
 
   </head>
-  <body class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-[#fff] tw-font-mono">
-    <header
-      class="tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-white tw-px-[5%] max-lg:tw-mr-auto max-lg:tw-px-4 lg:tw-justify-around tw-shadow-lg"
-    >
-      <a class="tw-text-2xl tw-font-medium tw-my-auto" href="../index.html">
-        SPACESCANS
+  <body class="tw-flex tw-min-h-[100vh] tw-flex-col">
+    <header class="site-header">
+      <a class="site-header__brand" href="../index.html">
+        <span class="site-header__brand-name">SPACESCANS</span>
+        <span class="site-header__brand-meta">
+          Indiana University &amp; Regenstrief Institute · NIH R24ES036131
+        </span>
       </a>
-      <div
-        class="collapsible-header animated-collapse max-lg:tw-shadow-md"
-        id="collapsed-header-items"
-      >
-        <div
-          class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base tw-text-black max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-place-items-end max-lg:tw-gap-5 lg:tw-mx-auto lg:tw-place-items-center"
-        >
-          <a class="header-links" href="../pages/platform.html">
-            Data Catalog
-          </a>
-          <a class="header-links" href="../pages/docs.html"> Docs </a>
-          <a class="header-links" href="../pages/contact.html"> Contact Us</a>
-        </div>
-      </div>
+      <nav class="site-header__nav" id="collapsed-header-items">
+        <a href="../pages/platform.html">Data Catalog</a>
+        <a href="../pages/docs.html">Docs</a>
+        <a href="../pages/contact.html">Contact</a>
+      </nav>
       <button
-        class="tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-black lg:tw-hidden"
+        class="site-header__menu-btn"
         onclick="toggleHeader()"
-        aria-label="menu"
+        aria-label="Toggle navigation"
         id="collapse-btn"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
           <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
         </svg>
       </button>
@@ -65,9 +63,7 @@
         <div
           class="reveal-up tw-mt-5 tw-flex tw-flex-col tw-gap-3 tw-text-center"
         >
-          <h2
-            class="tw-text-6xl tw-bg-orange-200 tw-font-semibold tw-uppercase"
-          >
+          <h2 class="reveal-up section-head">
             Platform & Data
           </h2>
         </div>
@@ -203,16 +199,33 @@
       </div>
     </section>
 
-    <hr class="tw-mt-4" />
-
-    <footer
-      class="tw-mt-auto tw-flex tw-min-h-[100px] tw-w-full tw-place-content-around tw-place-items-center tw-gap-3 tw-p-[2%] tw-px-[10%] tw-text-black max-md:tw-flex-col"
-    >
-      <div class="tw-flex tw-gap-6 tw-text-2xl">
-        <p class="tw-text-sm">
-          Funding: Supported by the National Institute of Environmental Health
-          Sciences (NIEHS) R24ES036131
-        </p>
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div class="site-footer__col">
+          <div class="site-footer__brand">SPACESCANS</div>
+          <p class="site-footer__copy">
+            &copy; 2026 Indiana University &amp; Regenstrief Institute.<br />
+            Supported by NIH/NIEHS R24ES036131.
+          </p>
+        </div>
+        <div class="site-footer__col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="../pages/platform.html">Data Catalog</a></li>
+            <li><a href="../pages/docs.html">Docs</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h4>Updates</h4>
+          <form class="signup-form" data-mailerlite-form data-form-location="footer">
+            <label for="footer-email-platform" class="visually-hidden">Email address</label>
+            <input id="footer-email-platform" name="email" type="email" required placeholder="you@example.org" />
+            <button type="submit">Subscribe</button>
+          </form>
+          <p class="signup-note">Double opt-in. Unsubscribe anytime.</p>
+          <div class="signup-status" role="status" aria-live="polite"></div>
+        </div>
       </div>
     </footer>
   </body>
@@ -233,4 +246,5 @@
   ></script>
 
   <script defer src="../index.js"></script>
+  <script defer src="../assets/js/mailerlite-form.js"></script>
 </html>

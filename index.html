@@ -20,102 +20,65 @@
     <!-- <link rel="stylesheet" href="css/tailwind-runtime.css" /> -->
     <link rel="stylesheet" href="css/tailwind-build.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@400;600;700&display=swap"
+    />
 
   </head>
-  <body class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-[#fff] tw-font-mono">
-    <header
-      class="tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-white tw-px-[5%] max-lg:tw-mr-auto max-lg:tw-px-4 lg:tw-justify-around tw-shadow-lg"
-    >
-      <a class="tw-text-2xl tw-font-medium tw-my-auto" href=""> SPACESCANS </a>
-      <div
-        class="collapsible-header animated-collapse max-lg:tw-shadow-md"
-        id="collapsed-header-items"
-      >
-        <div
-          class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base tw-text-black max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-place-items-end max-lg:tw-gap-5 lg:tw-mx-auto lg:tw-place-items-center"
-        >
-          <a class="header-links" href="pages/platform.html"> Data Catalog </a>
-          <a class="header-links" href="pages/docs.html"> Docs </a>
-          <a class="header-links" href="pages/contact.html"> Contact Us</a>
-        </div>
-        <!-- <div
-          class="tw-mx-4 tw-flex tw-place-items-center tw-gap-[20px] tw-text-base max-md:tw-w-full max-md:tw-flex-col max-md:tw-place-content-center"
-        >
-          <a
-            href="https://tally.so/r/woO0Kx"
-            aria-label="signup"
-            class="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-rounded-full tw-bg-black tw-p-1 tw-pl-4 tw-text-white"
-          >
-            <span>Get in touch</span>
-            <div
-              class="tw-flex tw-h-[30px] tw-w-[30px] tw-place-content-center tw-place-items-center tw-rounded-full tw-bg-white tw-font-semibold tw-text-black"
-            >
-              <i class="bi bi-arrow-up-right"></i>
-            </div>
-          </a>
-        </div> -->
-      </div>
+  <body class="tw-flex tw-min-h-[100vh] tw-flex-col">
+    <header class="site-header">
+      <a class="site-header__brand" href="./index.html">
+        <span class="site-header__brand-name">SPACESCANS</span>
+        <span class="site-header__brand-meta">
+          Indiana University &amp; Regenstrief Institute · NIH R24ES036131
+        </span>
+      </a>
+      <nav class="site-header__nav" id="collapsed-header-items">
+        <a href="pages/platform.html">Data Catalog</a>
+        <a href="pages/docs.html">Docs</a>
+        <a href="pages/contact.html">Contact</a>
+      </nav>
       <button
-        class="tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-black lg:tw-hidden"
+        class="site-header__menu-btn"
         onclick="toggleHeader()"
-        aria-label="menu"
+        aria-label="Toggle navigation"
         id="collapse-btn"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
           <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
         </svg>
       </button>
     </header>
 
-    <section
-      class="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden max-lg:tw-p-4 max-md:tw-mt-[50px]"
-    >
-      <div
-        class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-place-content-center tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col"
-      >
-        <div class="tw-flex tw-flex-col tw-place-content-center">
-          <div
-            class="tw-flex tw-flex-wrap tw-font-semibold tw-uppercase tw-leading-[85px] max-lg:tw-text-4xl max-md:tw-leading-snug"
-          >
-            <span
-              class="reveal-hero-text tw-text-7xl tw-bg-orange-200 tw-p-1 tw-px-6"
-            >
-              SPACESCANS
-            </span>
-            <br />
-            <span class="reveal-hero-text tw-text-4xl tw-pt-4">
-              Spatial & Contextual Exposome Semantic Data Integration
-              System</span
-            >
-          </div>
-          <div
-            class="reveal-hero-text tw-mt-2 tw-max-w-[450px] tw-p-2 tw-text-justify max-lg:tw-max-w-full"
-          >
-            Ontology-guided platform linking spatial & contextual exposome data
-            with individual-level patient data to accelerate real-world data
-            research and real-world evidence generation
-          </div>
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <h1 class="reveal-hero-text hero__title">SPACESCANS</h1>
+          <p class="reveal-hero-text hero__subtitle">
+            Spatial &amp; Contextual Exposome Semantic Data Integration System
+          </p>
+          <p class="reveal-hero-text hero__lead">
+            Ontology-guided platform linking spatial &amp; contextual exposome
+            data with individual-level patient data to accelerate real-world
+            data research and real-world evidence generation.
+          </p>
         </div>
-
-        <div
-          class="tw-flex tw-w-full tw-max-w-[50%] tw-place-content-center tw-place-items-center tw-overflow-hidden max-lg:tw-max-w-[unset]"
-        >
-          <div
-            class="tw-relative tw-flex tw-max-h-[580px] tw-min-h-[450px] tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden max-lg:tw-h-fit max-lg:tw-max-h-[320px] max-lg:tw-min-h-[180px] max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
-          >
-            <picture>
-              <source srcset="./assets/images/logo.webp" type="image/webp" />
-              <img
-                src="./assets/images/logo.png"
-                alt="SPACESCANS logo"
-                width="703"
-                height="630"
-                decoding="async"
-                fetchpriority="high"
-                class="reveal-hero-img tw-z-[1] tw-h-full tw-w-full tw-object-contain"
-              />
-            </picture>
-          </div>
+        <div class="hero__media">
+          <picture>
+            <source srcset="./assets/images/logo.webp" type="image/webp" />
+            <img
+              src="./assets/images/logo.png"
+              alt="SPACESCANS logo"
+              width="703"
+              height="630"
+              decoding="async"
+              fetchpriority="high"
+              class="reveal-hero-img hero__image"
+            />
+          </picture>
         </div>
       </div>
     </section>
@@ -140,31 +103,15 @@
       </div>
     </section>
 
-    <section
-      class="tw-flex tw-min-h-[50vh] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
-    >
-      <div
-        class="tw-mt-8 tw-max-w-4xl tw-flex tw-flex-col tw-place-items-center tw-gap-5"
-      >
-        <div
-          class="reveal-up tw-mt-5 tw-flex tw-flex-col tw-gap-3 tw-text-center"
-        >
-          <h2
-            class="tw-text-5xl tw-bg-orange-200 tw-font-semibold tw-uppercase"
-          >
-            Why It Matters
-          </h2>
-        </div>
-        <div
-          class="tw-mt-6 tw-flex tw-max-w-[80%] tw-flex-wrap tw-place-content-left tw-gap-2 max-lg:tw-flex-col"
-        >
-          <p class="tw-p-4">
-            Research on how place-based, social and built environments shape
-            health is hamstrung by fragmented data and ad-hoc linkage methods.
-            SPACESCANS closes these gaps by delivering a standards-driven,
-            user-friendly data-integration pipeline
-          </p>
-        </div>
+    <section class="content-section">
+      <div class="content-section__inner">
+        <h2 class="reveal-up section-head">Why It Matters</h2>
+        <p class="reveal-up lead">
+          Research on how place-based, social, and built environments shape
+          health is hamstrung by fragmented data and ad-hoc linkage methods.
+          SPACESCANS closes these gaps by delivering a standards-driven,
+          user-friendly data-integration pipeline.
+        </p>
       </div>
     </section>
     <section
@@ -188,180 +135,152 @@
       </div>
     </section>
 
-    <section
-      class="tw-relative tw-flex tw-min-h-[80vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
-      id="goals"
-    >
-      <div class="tw-mt-8 tw-flex tw-flex-col tw-place-items-center tw-gap-5">
-        <div
-          class="reveal-up tw-mt-5 tw-flex tw-flex-col tw-gap-3 tw-text-center"
-        >
-          <h2 class="tw-text-4xl tw-font-semibold">Specific Aims</h2>
-        </div>
-        <div
-          class="tw-mt-6 tw-flex tw-max-w-[60%] tw-flex-wrap tw-place-content-center tw-gap-2 max-lg:tw-flex-col"
-        >
-          <div
-            class="reveal-up tw-flex tw-w-[600px] tw-flex-col tw-gap-2 tw-p-4"
-          >
-            <!-- <img src="./assets/images/home/sample.jpg" 
-                              alt="feature1"> -->
-            <div class="tw-flex tw-gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" class="tw-text-2xl">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z"/>
-              </svg>
-              <h3 class="tw-text-2xl tw-font-semibold">SPACEO + SPACE-KG</h3>
-            </div>
-            <div class="tw-text-[#595959]">
-              Build an ontology and semantically-annotated knowledge graph
-              covering high-quality SCE data sources
-            </div>
-          </div>
-          <div
-            class="reveal-up tw-flex tw-w-[600px] tw-flex-col tw-gap-2 tw-p-4"
-          >
-            <!-- <img src="./assets/images/home/sample.jpg" 
-                              alt="feature1"> -->
-            <div class="tw-flex tw-gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" class="tw-text-2xl">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H8.62v-.077l1.74-1.851c.523-.567 1.396-1.385 1.396-2.42 0-1.224-.988-2.317-2.426-2.317-1.501 0-2.512 1.114-2.512 2.49v.043h1.231v-.042z"/>
-              </svg>
-              <h3 class="tw-text-2xl tw-font-semibold">SPACESCANS Web App</h3>
-            </div>
-            <div class="tw-text-[#595959]">
+    <section class="content-section" id="goals">
+      <div class="content-section__inner">
+        <h2 class="reveal-up section-head">Specific Aims</h2>
+        <div class="aim-grid">
+          <article class="reveal-up aim-card">
+            <div class="aim-card__numeral">1</div>
+            <h3 class="aim-card__heading">SPACEO + SPACE-KG</h3>
+            <p class="aim-card__body">
+              Build an ontology and semantically annotated knowledge graph
+              covering high-quality SCE data sources.
+            </p>
+          </article>
+          <article class="reveal-up aim-card">
+            <div class="aim-card__numeral">2</div>
+            <h3 class="aim-card__heading">SPACESCANS Web App</h3>
+            <p class="aim-card__body">
               Co-design and evaluate a cloud-ready linkage platform through two
-              real-world use-cases (AD/ADRD, diabetes)
-            </div>
-          </div>
-          <div
-            class="reveal-up tw-flex tw-w-[600px] tw-flex-col tw-gap-2 tw-p-4"
-          >
-            <!-- <img src="./assets/images/home/sample.jpg" 
-                              alt="feature1"> -->
-            <div class="tw-flex tw-gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" class="tw-text-2xl">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M7.918 8.414h-.879V7.342h.838c.78 0 1.348-.522 1.342-1.237 0-.709-.563-1.195-1.348-1.195-.79 0-1.312.498-1.348 1.055H5.275c.036-1.137.95-2.115 2.625-2.121 1.594-.012 2.608.885 2.637 2.062.023 1.137-.885 1.776-1.482 1.875v.07c.703.07 1.71.64 1.734 1.917.024 1.459-1.277 2.396-2.93 2.396-1.705 0-2.707-.973-2.748-2.157h1.336c.029.61.633 1.085 1.418 1.097.885.012 1.482-.522 1.471-1.289-.012-.785-.644-1.213-1.518-1.213z"/>
-              </svg>
-              <h3 class="tw-text-2xl tw-font-semibold">
-                Toolbox & Manual of Operations
-              </h3>
-            </div>
-            <div class="tw-text-[#595959]">
+              real-world use-cases (AD/ADRD, diabetes).
+            </p>
+          </article>
+          <article class="reveal-up aim-card">
+            <div class="aim-card__numeral">3</div>
+            <h3 class="aim-card__heading">Toolbox &amp; Manual of Operations</h3>
+            <p class="aim-card__body">
               Release open-source code, docs, and training materials for broad
-              adoption
-            </div>
-          </div>
+              adoption.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section
-      class="tw-mt-5 tw-flex tw-w-full tw-flex-col tw-place-items-center tw-p-[2%] max-lg:tw-p-3"
-    >
-      <h3
-        class="reveal-up tw-text-center tw-text-4xl tw-font-medium max-md:tw-text-2xl"
-      >
-        Quick Start
-      </h3>
-
-      <div
-        class="reveal-up tw-mt-10 tw-flex tw-flex-wrap tw-place-content-center tw-gap-10 max-lg:tw-flex-col"
-      >
-        <a
-          href="pages/platform.html"
-          class="tw-flex tw-w-[300px] tw-flex-col tw-gap-2 tw-overflow-clip tw-rounded-lg tw-bg-[#edecec79] tw-p-4 tw-shadow-xl max-lg:tw-w-[300px]"
-        >
-          <div class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md">
-            <img
-              src="./assets/images/harddrive.jpg"
-              alt="Hard drive illustration"
-              width="640"
-              height="427"
-              loading="lazy"
-              decoding="async"
-              class="tw-h-full tw-w-full tw-object-cover"
-            />
-          </div>
-          <h3 class="tw-text-xl max-md:tw-text-xl">
-            Browse Data Catalog<span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-              </svg>
-            </span>
-          </h3>
-        </a>
-        <a
-          href="pages/docs.html"
-          class="tw-flex tw-w-[300px] tw-flex-col tw-gap-2 tw-overflow-clip tw-rounded-lg tw-bg-[#edecec79] tw-p-4 tw-shadow-xl max-lg:tw-w-[300px]"
-        >
-          <div class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md">
-            <img
-              src="./assets/images/bookshelf.jpg"
-              alt="Bookshelf illustration"
-              width="640"
-              height="427"
-              loading="lazy"
-              decoding="async"
-              class="tw-h-full tw-w-full tw-object-cover"
-            />
-          </div>
-          <h3 class="tw-text-xl max-md:tw-text-xl">
-            Read the Manual<span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-              </svg>
-            </span>
-          </h3>
-        </a>
-        <a
-          href="pages/contact.html"
-          class="tw-flex tw-w-[300px] tw-flex-col tw-gap-2 tw-overflow-clip tw-rounded-lg tw-bg-[#edecec79] tw-p-4 tw-shadow-xl max-lg:tw-w-[300px]"
-        >
-          <div class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md">
-            <img
-              src="./assets/images/letter.jpg"
-              alt="Letter illustration"
-              width="640"
-              height="427"
-              loading="lazy"
-              decoding="async"
-              class="tw-h-full tw-w-full tw-object-cover"
-            />
-          </div>
-          <h3 class="tw-text-xl max-md:tw-text-xl">
-            Cite/Contact Us<span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-              </svg>
-            </span>
-          </h3>
-        </a>
+    <section class="content-section">
+      <div class="content-section__inner">
+        <h2 class="reveal-up section-head">Quick Start</h2>
+        <div class="quickstart-grid">
+          <a href="pages/platform.html" class="reveal-up quickstart-card">
+            <div class="quickstart-card__media">
+              <img
+                src="./assets/images/harddrive.jpg"
+                alt="Hard drive illustration"
+                width="640"
+                height="427"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="quickstart-card__body">
+              <h3 class="quickstart-card__title">Browse Data Catalog</h3>
+              <span class="quickstart-card__cta" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+          <a href="pages/docs.html" class="reveal-up quickstart-card">
+            <div class="quickstart-card__media">
+              <img
+                src="./assets/images/bookshelf.jpg"
+                alt="Bookshelf illustration"
+                width="640"
+                height="427"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="quickstart-card__body">
+              <h3 class="quickstart-card__title">Read the Manual</h3>
+              <span class="quickstart-card__cta" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+          <a href="pages/contact.html" class="reveal-up quickstart-card">
+            <div class="quickstart-card__media">
+              <img
+                src="./assets/images/letter.jpg"
+                alt="Letter illustration"
+                width="640"
+                height="427"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="quickstart-card__body">
+              <h3 class="quickstart-card__title">Cite or Contact Us</h3>
+              <span class="quickstart-card__cta" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
-    <hr class="tw-mt-4" />
-
-    <footer
-      class="tw-mt-auto tw-flex tw-min-h-[100px] tw-w-full tw-place-content-around tw-place-items-center tw-gap-3 tw-p-[2%] tw-px-[10%] tw-text-black max-md:tw-flex-col"
-    >
-      <div class="tw-flex tw-gap-6 tw-text-2xl">
-        <p class="tw-text-sm">
-          Funding: Supported by the National Institute of Environmental Health
-          Sciences (NIEHS) R24ES036131
+    <section class="stay-updated" id="stay-updated">
+      <div class="stay-updated__inner">
+        <h2 class="reveal-up section-head">
+          Stay Updated
+        </h2>
+        <p class="reveal-up lead">
+          Get research updates from the SPACESCANS team — typically once a
+          month, no marketing.
         </p>
-        <!-- <a href="" aria-label="Github">
-          <i class="bi bi-github"></i>
-        </a>
-        <a href="https://twitter.com/@pauls_freeman" aria-label="Twitter">
-          <i class="bi bi-twitter"></i>
-        </a>
-        <a
-          href="https://stackoverflow.com/"
-          class="tw-h-[40px] tw-w-[40px]"
-          aria-label="stackoverflow"
-        >
-          <i class="bi bi-stack-overflow"></i>
-        </a> -->
+        <form class="signup-form" data-mailerlite-form data-form-location="stay-updated">
+          <label for="stay-updated-email" class="visually-hidden">Email address</label>
+          <input id="stay-updated-email" name="email" type="email" required placeholder="you@example.org" />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="signup-note">Double opt-in. Unsubscribe anytime.</p>
+        <div class="signup-status" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div class="site-footer__col">
+          <div class="site-footer__brand">SPACESCANS</div>
+          <p class="site-footer__copy">
+            &copy; 2026 Indiana University &amp; Regenstrief Institute.<br />
+            Supported by NIH/NIEHS R24ES036131.
+          </p>
+        </div>
+        <div class="site-footer__col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="pages/platform.html">Data Catalog</a></li>
+            <li><a href="pages/docs.html">Docs</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h4>Updates</h4>
+          <form class="signup-form" data-mailerlite-form data-form-location="footer">
+            <label for="footer-email" class="visually-hidden">Email address</label>
+            <input id="footer-email" name="email" type="email" required placeholder="you@example.org" />
+            <button type="submit">Subscribe</button>
+          </form>
+          <p class="signup-note">Double opt-in. Unsubscribe anytime.</p>
+          <div class="signup-status" role="status" aria-live="polite"></div>
+        </div>
       </div>
     </footer>
   </body>
@@ -382,4 +301,5 @@
   ></script>
 
   <script defer src="./index.js"></script>
+  <script defer src="./assets/js/mailerlite-form.js"></script>
 </html>
