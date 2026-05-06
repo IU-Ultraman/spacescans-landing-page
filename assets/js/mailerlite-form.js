@@ -3,15 +3,16 @@
 // Wires every <form data-mailerlite-form> on the page to the MailerLite
 // universal embed. Updates the inline .signup-status div on success/error.
 //
-// Setup: replace YOUR_ACCOUNT_ID and YOUR_FORM_ID below with the real IDs
-// from your MailerLite dashboard. The same IDs are used for every form on
-// the site (single subscriber group).
+// IDs come from the MailerLite dashboard (Forms → Embedded forms → "Get the
+// code"). ACCOUNT_ID is the account number; FORM_ID is the numeric ID in the
+// form's action URL (NOT the short data-form slug like "SGVd9H" — that's
+// only for MailerLite's own .ml-embedded div selector).
 
 (function () {
   'use strict';
 
-  var ACCOUNT_ID = 'YOUR_ACCOUNT_ID';
-  var FORM_ID    = 'YOUR_FORM_ID';
+  var ACCOUNT_ID = '2323598';
+  var FORM_ID    = '186738107483162062';
 
   // Load MailerLite universal embed (idempotent — only loads once)
   function loadMailerLite() {
